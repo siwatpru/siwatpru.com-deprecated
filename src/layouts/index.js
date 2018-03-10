@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 const Template = ({ className, location, children }) => {
   return (
     <Container className={className}>
-      <Header />
+      <Header location={location} />
       {children()}
       <Footer />
     </Container>

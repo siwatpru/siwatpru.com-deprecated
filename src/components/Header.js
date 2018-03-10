@@ -24,7 +24,7 @@ const Logo = ({ isRoot }) => {
   }
 }
 
-const Header = ({ className }) => {
+const Header = ({ className, location }) => {
   let rootPath = `/`
   if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
     rootPath = __PATH_PREFIX__ + `/`
@@ -34,7 +34,6 @@ const Header = ({ className }) => {
     paddingBottom: '2px',
     borderBottom: '1px solid hsla(0, 0%, 0%, 1)',
   }
-  console.log(location.pathname)
   return (
     <div className={className}>
       <Logo isRoot={bigHeaderPaths.indexOf(location.pathname) > -1} />
