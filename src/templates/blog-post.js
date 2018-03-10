@@ -24,7 +24,16 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(-0.8),
           }}
         >
-          {post.frontmatter.date}
+          {post.frontmatter.date}{' '}
+          <a
+            href={`https://github.com/siwatpru/siwatpru.com/blob/master/blog${
+              post.fields.slug
+            }/index.md`}
+            target="_blank"
+            rel="noopener"
+          >
+            [source]
+          </a>
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -77,6 +86,9 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

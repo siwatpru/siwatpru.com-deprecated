@@ -57,6 +57,17 @@ class Template extends React.Component {
         </h3>
       )
     }
+    const footer = (
+      <div
+        style={{
+          marginTop: '20px',
+          borderTop: '1px solid hsla(0, 0%, 0%, 0.07)',
+          color: 'hsla(0, 0%, 0%, 0.5)',
+        }}
+      >
+        © Siwat Pruksapanya
+      </div>
+    )
     return (
       <Container
         style={{
@@ -66,6 +77,7 @@ class Template extends React.Component {
       >
         {header}
         {children()}
+        {footer}
       </Container>
     )
   }
