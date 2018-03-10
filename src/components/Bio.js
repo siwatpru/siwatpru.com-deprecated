@@ -3,8 +3,7 @@ import React from 'react'
 // Import typefaces
 import 'typeface-montserrat'
 import 'typeface-merriweather'
-
-import profilePic from './profile-pic.jpg'
+import profilePic from './profile-pic.png'
 import { rhythm } from '../utils/typography'
 
 class Bio extends React.Component {
@@ -30,11 +29,11 @@ class Bio extends React.Component {
         <p>
           Written by <strong>Siwat Pruksapanya</strong> who lives and works in
           Bangkok building web. You should follow him on{' '}
-          <a href="https://twitter.com/siwatpru" target="_blank">
+          <a href="https://twitter.com/siwatpru" target="_blank" rel="noopener">
             Twitter
           </a>{' '}
           and{' '}
-          <a href="https://github.com/siwatpru" target="_blank">
+          <a href="https://github.com/siwatpru" target="_blank" rel="noopener">
             Github
           </a>
         </p>
