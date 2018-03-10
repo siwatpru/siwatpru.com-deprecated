@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Helmet from 'react-helmet'
 import { Container } from 'react-responsive-grid'
 
 import { rhythm } from '../utils/typography'
@@ -7,15 +8,32 @@ import { rhythm } from '../utils/typography'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-const Template = ({ className, location, children }) => {
+const Template = ({ className, location, children, data }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const siteDescription = data.site.siteMetadata.description
   return (
     <Container className={className}>
+      <Helmet>
+        <title>{siteTitle}</title>
+        <meta name="description" content={siteDescription} />
+      </Helmet>
       <Header location={location} />
       {children()}
       <Footer />
     </Container>
   )
 }
+
+export const siteQuery = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`
 
 export default styled(Template)`
   max-width: ${rhythm(24)};

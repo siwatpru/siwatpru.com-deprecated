@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'siwatpru',
     author: 'Siwat Pruksapanya',
-    description: 'Just another coding blog.',
+    description: `Hi, I'm Siwat. I build web apps. Fullstack web developer living in Bangkok, Thailand.`,
     siteUrl: 'https://siwatpru.com',
   },
   pathPrefix: '/gatsby-starter-blog',

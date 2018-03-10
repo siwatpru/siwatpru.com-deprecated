@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
 
 import { rhythm } from '../utils/typography'
 
 const Work = ({ className, data }) => {
-  const siteTitle = data.site.siteMetadata.title
   return (
     <div className={className}>
-      <Helmet title={siteTitle} />
       <h1>
         Siwat is building<br />
         softwares and tools
@@ -35,16 +32,6 @@ const Work = ({ className, data }) => {
     </div>
   )
 }
-
-export const pageQuery = graphql`
-  query WorkQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
 
 export default styled(Work)`
   h1 {

@@ -5,10 +5,8 @@ import Helmet from 'react-helmet'
 import { rhythm } from '../utils/typography'
 
 const Index = ({ className, data }) => {
-  const siteTitle = data.site.siteMetadata.title
   return (
     <div className={className}>
-      <Helmet title={siteTitle} />
       <h1>
         Hi, I'm Siwat. <br />I build web apps.
       </h1>
@@ -33,16 +31,6 @@ const Index = ({ className, data }) => {
     </div>
   )
 }
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
 
 export default styled(Index)`
   h1 {
