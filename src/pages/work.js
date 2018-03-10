@@ -13,8 +13,8 @@ const Work = ({ className, data }) => {
       <h3>somewhere in the corner at Sertis.</h3>
       <p className="work">
         <small>
-          Sertis is a leading data and AI innovation company in Thailand. Check
-          Sertis out{' '}
+          Sertis is a leading data and AI innovation company in Thailand. <br />
+          Check Sertis out{' '}
           <a href="https://sertiscorp.com" target="_blank" rel="noopener">
             here
           </a>.
