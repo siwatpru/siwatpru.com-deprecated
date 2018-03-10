@@ -1,36 +1,35 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import get from 'lodash/get'
+import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import Bio from '../components/Bio'
 import { rhythm } from '../utils/typography'
 
-const BlogIndex = ({ data }) => {
+const Index = ({ className, data }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
   return (
-    <div>
+    <div className={className}>
       <Helmet title={siteTitle} />
-      <Bio />
-      {posts.map(({ node }) => {
-        const title = get(node, 'frontmatter.title') || node.fields.slug
-        return (
-          <div key={node.fields.slug}>
-            <h3
-              style={{
-                marginBottom: rhythm(1 / 4),
-              }}
-            >
-              <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                {title}
-              </Link>
-            </h3>
-            <small>{node.frontmatter.date}</small>
-            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
-        )
-      })}
+      <h1>
+        Hi, I'm Siwat. <br />I build web apps.
+      </h1>
+      <h3>Fullstack web developer living in Bangkok, Thailand.</h3>
+      <p className="vim">
+        <small>
+          Siwat also in love with Vim.<br /> He won't be using other editors
+          anytime soon ;)
+        </small>
+      </p>
+      <p className="github">
+        Nyeh Heh Heh! I know this site is fast!<br />
+        Check out the source code{' '}
+        <a
+          href="https://github.com/siwatpru/siwatpru.com"
+          target="_blank"
+          rel="noopener"
+        >
+          here
+        </a>
+      </p>
     </div>
   )
 }
@@ -42,21 +41,26 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "DD MMMM, YYYY")
-            title
-          }
-        }
-      }
-    }
   }
 `
 
-export default BlogIndex
+export default styled(Index)`
+  h1 {
+    border: 0;
+    margin-bottom: 0;
+  }
+  h3 {
+    margin-top: 0;
+  }
+  p {
+    color: hsla(0, 0%, 0%, 0.5);
+  }
+  .vim {
+    margin-top: 10px;
+    line-height: 1;
+  }
+  .github {
+    margin-top: 170px;
+    line-height: 1.4;
+  }
+`
