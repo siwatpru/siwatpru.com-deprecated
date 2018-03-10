@@ -85,6 +85,7 @@ export default styled(BlogPostTemplate)`
 
   hr {
     margin-bottom: ${rhythm(1)};
+    background: hsla(0, 0%, 0%, 0.07);
   }
 
   .next-or-previous {
