@@ -8,92 +8,86 @@ const Logo = ({ isRoot }) => {
   if (isRoot) {
     return (
       <div>
-        <h1 className="large-header">
-          <Link to={'/'}>siwatpru.com</Link>
-        </h1>
+        <H1>
+          <StyledHeaderLink to={'/'}>siwatpru.com</StyledHeaderLink>
+        </H1>
       </div>
     )
   } else {
     return (
       <div>
-        <h3 className="small-header">
-          <Link to={'/'}>siwatpru.com</Link>
-        </h3>
+        <H3>
+          <StyledHeaderLink to={'/'}>siwatpru.com</StyledHeaderLink>
+        </H3>
       </div>
     )
   }
 }
 
-const Header = ({ className, location }) => {
-  let rootPath = `/`
-  if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-    rootPath = __PATH_PREFIX__ + `/`
-  }
+export default ({ location }) => {
+  const rootPath = `/`
   const bigHeaderPaths = [rootPath, `${rootPath}work`, `${rootPath}blog`]
-  const activeStyle = {
-    paddingBottom: '2px',
-    borderBottom: '1px solid hsla(0, 0%, 0%, 1)',
-  }
+  const { pathname } = location
   return (
-    <div className={className}>
+    <div>
       <Logo isRoot={bigHeaderPaths.indexOf(location.pathname) > -1} />
-      <nav>
-        <Link
-          to={'/'}
-          className={location.pathname === rootPath ? 'link-active' : ''}
-        >
+      <Nav>
+        <StyledLink to="/" isActive={() => pathname === rootPath}>
           Home
-        </Link>
-        <Link to={'/work'} activeClassName="link-active">
+        </StyledLink>
+        <StyledLink to="/work" isActive={() => pathname === '/work'}>
           Work
-        </Link>
-        <Link to={'/blog'} activeClassName="link-active">
+        </StyledLink>
+        <StyledLink to="/blog" isActive={() => pathname.startsWith('/blog')}>
           Blog
-        </Link>
-      </nav>
+        </StyledLink>
+      </Nav>
     </div>
   )
 }
 
-export default styled(Header)`
-  nav {
-    margin-bottom: ${rhythm(1.5)};
-    a + a {
-      margin-left: 15px;
-    }
-    a {
-      color: inherit;
-      padding: 0 2px;
-    }
-    a:hover {
-      text-decoration: none;
-    }
-    .link-active {
-      border-bottom: 3px solid hsla(0, 0%, 0%, 0.08);
-      padding-bottom: 2px;
-    }
+const StyledLink = styled(Link)`
+  ${props =>
+    props.isActive() &&
+    `
+    border-bottom: 3px solid hsla(0, 0%, 0%, 0.08);
+  `};
+`
+
+const Nav = styled.nav`
+  margin-bottom: ${rhythm(1.5)};
+  ${StyledLink} {
+    color: inherit;
+    padding: 2px 2px;
   }
-  .large-header {
-    font-size: ${scale(1.5).fontSize};
-    line-height: ${scale(1.5).lineHeight};
-    margin-bottom: 0;
-    margin-top: 0;
-    a {
-      boxshadow: none;
-      text-decoration: none;
-      color: inherit;
-    }
+  ${StyledLink} + ${StyledLink} {
+    margin-left: 15px;
   }
-  .small-header {
-    font-family: Montserrat, sans-serif;
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.5;
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.07);
-    a {
-      boxshadow: none;
-      text-decoration: none;
-      color: inherit;
-    }
+  ${StyledLink}:hover {
+    text-decoration: none;
   }
+`
+
+const StyledHeaderLink = styled(Link)`
+  boxshadow: none;
+  text-decoration: none;
+  color: inherit;
+  ${this}: hover {
+    text-decoration: none;
+  }
+`
+
+const H1 = styled.h1`
+  font-size: ${scale(1.5).fontSize};
+  line-height: ${scale(1.5).lineHeight};
+  margin-bottom: 0;
+  margin-top: 0;
+`
+
+const H3 = styled.h3`
+  font-family: Montserrat, sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.07);
 `

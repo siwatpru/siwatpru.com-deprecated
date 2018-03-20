@@ -8,11 +8,11 @@ import { rhythm } from '../utils/typography'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-const Template = ({ className, location, children, data }) => {
+export default ({ location, children, data }) => {
   const siteTitle = data.site.siteMetadata.title
   const siteDescription = data.site.siteMetadata.description
   return (
-    <Container className={className}>
+    <StyledContainer>
       <Helmet>
         <title>{siteTitle}</title>
         <meta name="description" content={siteDescription} />
@@ -20,7 +20,7 @@ const Template = ({ className, location, children, data }) => {
       <Header location={location} />
       {children()}
       <Footer />
-    </Container>
+    </StyledContainer>
   )
 }
 
@@ -35,7 +35,7 @@ export const siteQuery = graphql`
   }
 `
 
-export default styled(Template)`
+const StyledContainer = styled(Container)`
   max-width: ${rhythm(24)};
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
 `

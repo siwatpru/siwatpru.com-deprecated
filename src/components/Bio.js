@@ -7,9 +7,9 @@ import 'typeface-merriweather'
 import profilePic from './profile-pic.png'
 import { rhythm } from '../utils/typography'
 
-const Bio = ({ className }) => (
-  <div className={className}>
-    <img src={profilePic} alt={`Siwat Pruksapanya`} />
+export default () => (
+  <Div>
+    <Img src={profilePic} alt={`Siwat Pruksapanya`} />
     <p>
       Written by <strong>Siwat Pruksapanya</strong> who lives and works in
       Bangkok building web. You should follow him on{' '}
@@ -21,18 +21,18 @@ const Bio = ({ className }) => (
         Github
       </a>
     </p>
-  </div>
+  </Div>
 )
 
-export default styled(Bio)`
+const Div = styled.div`
   display: flex;
   margin-bottom: ${rhythm(2.5)};
+`
 
-  img {
-    margin-right: ${rhythm(1 / 2)};
-    margin-bottom: 0;
-    width: ${rhythm(2)};
-    height: ${rhythm(2)};
-    border-radius: 50%;
-  }
+const Img = styled.img`
+  margin-right: ${rhythm(1 / 2)};
+  margin-bottom: 0;
+  width: ${rhythm(2)};
+  height: ${rhythm(2)};
+  border-radius: 50%;
 `

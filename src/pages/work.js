@@ -3,15 +3,15 @@ import styled from 'styled-components'
 
 import { rhythm } from '../utils/typography'
 
-const Work = ({ className, data }) => {
+export default ({ data }) => {
   return (
-    <div className={className}>
-      <h1>
+    <div>
+      <H1>
         Siwat is building<br />
         softwares and tools
-      </h1>
-      <h3>somewhere in the corner at Sertis.</h3>
-      <p className="work">
+      </H1>
+      <H3>somewhere in the corner at Sertis.</H3>
+      <WorkP>
         <small>
           Sertis is a leading data and AI innovation company in Thailand. <br />
           Check Sertis out{' '}
@@ -19,39 +19,37 @@ const Work = ({ className, data }) => {
             here
           </a>.
         </small>
-      </p>
-      <p className="open-source">
+      </WorkP>
+      <OpenSourceP>
         Have a project you'd like to discuss?<br />
         Let's chat{' '}
         <a href="mailto:siwat.pru@outlook.com" target="_blank" rel="noopener">
           siwat.pru@outlook.com
         </a>
         <br />
-        <small>Also, more open-source works coming soon :)</small>
-      </p>
+        <StyledSmall>Also, more open-source works coming soon :)</StyledSmall>
+      </OpenSourceP>
     </div>
   )
 }
 
-export default styled(Work)`
-  h1 {
-    border: 0;
-    margin-bottom: 0;
-  }
-  h3 {
-    margin-top: 0;
-  }
-  p {
-    color: hsla(0, 0%, 0%, 0.5);
-  }
-  .work {
-    line-height: 1;
-  }
-  .open-source {
-    line-height: 1.4;
-    margin-top: 170px;
-    small {
-      margin-top: 20px;
-    }
-  }
+const H1 = styled.h1`
+  border: 0;
+  margin-bottom: 0;
+`
+const H3 = styled.h3`
+  margin-top: 0;
+`
+const P = styled.p`
+  color: hsla(0, 0%, 0%, 0.5);
+`
+const WorkP = P.extend`
+  line-height: 1;
+`
+const OpenSourceP = P.extend`
+  line-height: 1.4;
+  margin-top: 170px;
+`
+const StyledSmall = styled.small`
+  margin-top: 20px;
 `

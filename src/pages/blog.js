@@ -4,7 +4,7 @@ import get from 'lodash/get'
 
 import { rhythm } from '../utils/typography'
 
-const Blog = ({ data }) => {
+export default ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <div>
@@ -51,5 +51,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default Blog

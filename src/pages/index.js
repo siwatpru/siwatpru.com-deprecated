@@ -4,20 +4,20 @@ import Helmet from 'react-helmet'
 
 import { rhythm } from '../utils/typography'
 
-const Index = ({ className, data }) => {
+export default ({ data }) => {
   return (
-    <div className={className}>
-      <h1>
+    <div>
+      <H1>
         Hi, I'm Siwat. <br />I build web apps.
-      </h1>
-      <h3>Fullstack web developer living in Bangkok, Thailand.</h3>
-      <p className="vim">
+      </H1>
+      <H3>Fullstack web developer living in Bangkok, Thailand.</H3>
+      <VimP>
         <small>
           Siwat also in love with Vim.<br /> He won't be using other editors
           anytime soon ;)
         </small>
-      </p>
-      <p className="github">
+      </VimP>
+      <GithubP>
         Nyeh Heh Heh! I know this site is fast!<br />
         Check out the source code{' '}
         <a
@@ -27,28 +27,26 @@ const Index = ({ className, data }) => {
         >
           here
         </a>
-      </p>
+      </GithubP>
     </div>
   )
 }
 
-export default styled(Index)`
-  h1 {
-    border: 0;
-    margin-bottom: 0;
-  }
-  h3 {
-    margin-top: 0;
-  }
-  p {
-    color: hsla(0, 0%, 0%, 0.5);
-  }
-  .vim {
-    margin-top: 10px;
-    line-height: 1;
-  }
-  .github {
-    margin-top: 170px;
-    line-height: 1.4;
-  }
+const H1 = styled.h1`
+  border: 0;
+  margin-bottom: 0;
+`
+const H3 = styled.h3`
+  margin-top: 0;
+`
+const P = styled.p`
+  color: hsla(0, 0%, 0%, 0.5);
+`
+const VimP = P.extend`
+  margin-top: 10px;
+  line-height: 1;
+`
+const GithubP = P.extend`
+  margin-top: 170px;
+  line-height: 1.4;
 `

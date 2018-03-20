@@ -7,15 +7,15 @@ import get from 'lodash/get'
 import Bio from '../components/Bio'
 import { rhythm, scale } from '../utils/typography'
 
-const BlogPostTemplate = ({ className, data, pathContext }) => {
+export default ({ data, pathContext }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pathContext
   return (
-    <div className={className}>
+    <div>
       <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
       <h1>{post.frontmatter.title}</h1>
-      <p className="date">
+      <Date>
         {post.frontmatter.date}{' '}
         <a
           href={`https://github.com/siwatpru/siwatpru.com/blob/master/blog${
@@ -26,12 +26,11 @@ const BlogPostTemplate = ({ className, data, pathContext }) => {
         >
           [source]
         </a>
-      </p>
+      </Date>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr />
+      <Hr />
       <Bio />
-
-      <ul className="next-or-previous">
+      <Ul>
         {previous && (
           <li>
             <Link to={previous.fields.slug} rel="prev">
@@ -47,7 +46,7 @@ const BlogPostTemplate = ({ className, data, pathContext }) => {
             </Link>
           </li>
         )}
-      </ul>
+      </Ul>
     </div>
   )
 }
@@ -74,25 +73,23 @@ export const pageQuery = graphql`
   }
 `
 
-export default styled(BlogPostTemplate)`
-  .date {
-    font-size: ${scale(-1 / 5).fontSize};
-    line-height: ${scale(-1 / 5).lineHeight};
-    display: block;
-    margin-bottom: ${rhythm(1)};
-    margin-top: ${rhythm(-0.8)};
-  }
+const Date = styled.p`
+  font-size: ${scale(-1 / 5).fontSize};
+  line-height: ${scale(-1 / 5).lineHeight};
+  display: block;
+  margin-bottom: ${rhythm(1)};
+  margin-top: ${rhythm(-0.8)};
+`
 
-  hr {
-    margin-bottom: ${rhythm(1)};
-    background: hsla(0, 0%, 0%, 0.07);
-  }
+const Hr = styled.hr`
+  margin-bottom: ${rhythm(1)};
+  background: hsla(0, 0%, 0%, 0.07);
+`
 
-  .next-or-previous {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    list-style: none;
-    padding: 0;
-  }
+const Ul = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
 `
