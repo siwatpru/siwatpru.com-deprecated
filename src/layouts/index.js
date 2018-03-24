@@ -8,6 +8,8 @@ import { rhythm } from '../utils/typography'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+require('prismjs/themes/prism.css')
+
 export default ({ location, children, data }) => {
   const siteTitle = data.site.siteMetadata.title
   const siteDescription = data.site.siteMetadata.description

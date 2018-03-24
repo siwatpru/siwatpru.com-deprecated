@@ -20,20 +20,20 @@ export default ({ data, pathContext }) => {
         <a
           href={`https://github.com/siwatpru/siwatpru.com/blob/master/blog${
             post.fields.slug
-          }/index.md`}
+          }index.md`}
           target="_blank"
           rel="noopener"
         >
           [source]
         </a>
       </Date>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <BlogPost dangerouslySetInnerHTML={{ __html: post.html }} />
       <Hr />
       <Bio />
       <Ul>
         {previous && (
           <li>
-            <Link to={previous.fields.slug} rel="prev">
+            <Link to={`/blog${previous.fields.slug}`} rel="prev">
               ← {previous.frontmatter.title}
             </Link>
           </li>
@@ -41,7 +41,7 @@ export default ({ data, pathContext }) => {
 
         {next && (
           <li>
-            <Link to={next.fields.slug} rel="next">
+            <Link to={`/blog${next.fields.slug}`} rel="next">
               {next.frontmatter.title} →
             </Link>
           </li>
@@ -70,6 +70,14 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
       }
     }
+  }
+`
+
+const BlogPost = styled.div`
+  code {
+    background: #f5f2f0;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
   }
 `
 
