@@ -18,6 +18,11 @@ export default ({ location, children, data }) => {
       <Helmet>
         <title>{siteTitle}</title>
         <meta name="description" content={siteDescription} />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
       </Helmet>
       <Header location={location} />
       {children()}
