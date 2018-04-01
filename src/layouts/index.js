@@ -16,6 +16,7 @@ export default ({ location, children, data }) => {
   return (
     <StyledContainer>
       <Helmet>
+        <html lang="en" />
         <title>{siteTitle}</title>
         <meta name="description" content={siteDescription} />
         <link
