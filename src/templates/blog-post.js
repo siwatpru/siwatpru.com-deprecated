@@ -13,7 +13,10 @@ export default ({ data, pathContext }) => {
   const { previous, next } = pathContext
   return (
     <div>
-      <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+      <Helmet>
+        <title>{`${post.frontmatter.title} | ${siteTitle}`}</title>
+        <meta name="description" content={post.excerpt} />
+      </Helmet>
       <h1>{post.frontmatter.title}</h1>
       <Date>
         {post.frontmatter.date}{' '}
@@ -65,6 +68,7 @@ export const pageQuery = graphql`
       fields {
         slug
       }
+      excerpt
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
