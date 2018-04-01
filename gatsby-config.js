@@ -60,15 +60,15 @@ module.exports = {
         start_url: '/',
         background_color: '#f7f0eb',
         theme_color: '#a2466c',
-        display: 'minimal-ui',
+        display: 'standalone',
         icons: [
           {
-            src: `logo192.png`,
+            src: `/logo192.png`,
             sizes: `192x192`,
             type: `image/png`,
           },
           {
-            src: `logo512.png`,
+            src: `/logo512.png`,
             sizes: `512x512`,
             type: `image/png`,
           },
