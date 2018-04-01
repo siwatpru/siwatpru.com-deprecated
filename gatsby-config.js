@@ -52,6 +52,29 @@ module.exports = {
       },
     },
     `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'siwatpru.com',
+        short_name: 'siwatpru',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#a2466c',
+        display: 'minimal-ui',
+        icons: [
+          {
+            src: `logo192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `logo512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
+      },
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
