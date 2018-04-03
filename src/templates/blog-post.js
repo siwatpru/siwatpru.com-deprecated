@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
+import ReactDisqusComments from 'react-disqus-comments'
 
 import Bio from '../components/Bio'
 import { rhythm, scale } from '../utils/typography'
@@ -50,6 +51,12 @@ export default ({ data, pathContext }) => {
           </li>
         )}
       </Ul>
+      <ReactDisqusComments
+        shortname="siwatpru"
+        identifier={post.fields.slug}
+        title={post.frontmatter.title}
+        url={`https://siwatpru.com/blog${post.fields.slug}`}
+      />
     </div>
   )
 }
