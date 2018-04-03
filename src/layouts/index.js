@@ -19,6 +19,11 @@ export default ({ location, children, data }) => {
         <html lang="en" />
         <title>{siteTitle}</title>
         <meta name="description" content={siteDescription} />
+        <meta
+          name="keywords"
+          content="Siwat,Pruksapanya,Siwat Pruksapanya,Javascript,Web"
+        />
+        <meta name="author" content="Siwat Pruksapanya" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
